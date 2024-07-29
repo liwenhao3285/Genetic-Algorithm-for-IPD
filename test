@@ -1,0 +1,27 @@
+import numpy as np
+import math
+
+selection_list = []
+selection_list.clear()
+selection_list2 = []
+selection_list2.clear()
+count_above_150 = 0
+count_above_180 = 0
+
+while len(selection_list) < 400:
+    selection_list = np.random.power(5, 4000)
+
+for i in range(400):
+    selection_list2.append(math.ceil(selection_list[i] * 200))
+
+for i in range(len(selection_list2)):
+    if selection_list2[i] > 150:
+        count_above_150 += 1
+
+for i in range(len(selection_list2)):
+    if selection_list2[i] > 180:
+        count_above_180 += 1
+
+print(selection_list2)
+print(count_above_150/len(selection_list2))
+print(count_above_180/len(selection_list2))
